@@ -37,7 +37,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./lessons/01/index.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -76,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -88,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">ガイダンス</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">第1回：Excelの基本操作</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -116,12 +144,6 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">ガイダンス</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./lessons/01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">第1回：Excelの基本操作</span></a>
   </div>
 </li>
@@ -135,13 +157,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#ガイダンス" id="toc-ガイダンス" class="nav-link active" data-scroll-target="#ガイダンス">ガイダンス</a>
+  <li><a href="#第1回excelの基本操作" id="toc-第1回excelの基本操作" class="nav-link active" data-scroll-target="#第1回excelの基本操作">第1回：Excelの基本操作</a>
   <ul class="collapse">
-  <li><a href="#演習の概要" id="toc-演習の概要" class="nav-link" data-scroll-target="#演習の概要">演習の概要</a></li>
-  <li><a href="#演習の進め方" id="toc-演習の進め方" class="nav-link" data-scroll-target="#演習の進め方">演習の進め方</a></li>
-  <li><a href="#演習一覧" id="toc-演習一覧" class="nav-link" data-scroll-target="#演習一覧">演習一覧</a></li>
-  <li><a href="#授業情報" id="toc-授業情報" class="nav-link" data-scroll-target="#授業情報">授業情報</a></li>
-  <li><a href="#教材課題について" id="toc-教材課題について" class="nav-link" data-scroll-target="#教材課題について">教材・課題について</a></li>
+  <li><a href="#数式の入力" id="toc-数式の入力" class="nav-link" data-scroll-target="#数式の入力">1. 数式の入力</a>
+  <ul class="collapse">
+  <li><a href="#セルと数式" id="toc-セルと数式" class="nav-link" data-scroll-target="#セルと数式">セルと数式</a></li>
+  </ul></li>
+  <li><a href="#関数の入力" id="toc-関数の入力" class="nav-link" data-scroll-target="#関数の入力">2. 関数の入力</a>
+  <ul class="collapse">
+  <li><a href="#関数とは" id="toc-関数とは" class="nav-link" data-scroll-target="#関数とは">関数とは</a></li>
+  <li><a href="#基本的な関数" id="toc-基本的な関数" class="nav-link" data-scroll-target="#基本的な関数">基本的な関数</a></li>
+  </ul></li>
+  <li><a href="#相対参照絶対参照複合参照" id="toc-相対参照絶対参照複合参照" class="nav-link" data-scroll-target="#相対参照絶対参照複合参照">3. 相対参照・絶対参照・複合参照</a>
+  <ul class="collapse">
+  <li><a href="#相対参照コピー先に合わせて参照先が変わる" id="toc-相対参照コピー先に合わせて参照先が変わる" class="nav-link" data-scroll-target="#相対参照コピー先に合わせて参照先が変わる">相対参照：コピー先に合わせて参照先が変わる</a></li>
+  <li><a href="#絶対参照コピーしても参照先が変わらない" id="toc-絶対参照コピーしても参照先が変わらない" class="nav-link" data-scroll-target="#絶対参照コピーしても参照先が変わらない">絶対参照：コピーしても参照先が変わらない</a></li>
+  <li><a href="#複合参照列だけまたは行だけを固定する" id="toc-複合参照列だけまたは行だけを固定する" class="nav-link" data-scroll-target="#複合参照列だけまたは行だけを固定する">複合参照：列だけ、または行だけを固定する</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -175,157 +207,600 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="ガイダンス" class="level1 unnumbered">
-<h1 class="unnumbered">ガイダンス</h1>
-<section id="演習の概要" class="level2">
-<h2 class="anchored" data-anchor-id="演習の概要">演習の概要</h2>
-<p>このサイトは「ファイナンス入門演習」の学習用サイトです。講義で学ぶ考え方を、計算や問題演習を通じて確認します。</p>
-<p>お金の時間価値、投資の意思決定、債券、株式、ポートフォリオ理論、企業価値評価を扱います。</p>
+<section id="第1回excelの基本操作" class="level1 unnumbered">
+<h1 class="unnumbered">第1回：Excelの基本操作</h1>
+<p><strong>使用するExcelファイルのダウンロード</strong></p>
+<p>下のリンクからExcelファイルをダウンロードし、Excelで開いてください。</p>
+<p><a href="lessons/01/files/ファイナンス入門演習_第1回.xlsx" class="btn btn-primary" download="ファイナンス入門演習_第1回.xlsx">ファイナンス入門演習_第1回.xlsxをダウンロード</a></p>
+<section id="数式の入力" class="level2">
+<h2 class="anchored" data-anchor-id="数式の入力">1. 数式の入力</h2>
+<section id="セルと数式" class="level3">
+<h3 class="anchored" data-anchor-id="セルと数式">セルと数式</h3>
+<p>Excelのマス目を<strong>セル</strong>といいます。列はA、B、C、…、行は1、2、3、…で表されます。例えば、B列の2行目のセルは <strong>B2</strong> です。</p>
+<p>数式は、必ず半角の <strong><code>=</code></strong> から入力します。セルを選び、<code>=10000+500</code> と入力して Enter キーを押すと、計算結果の <code>10500</code> が表示されます。入力した数式は、セルを選択すると数式バーで確認できます。</p>
+<p><strong>例：数式の入力</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>計算</th>
+<th>Excelへの入力</th>
+<th style="text-align: right;">結果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>足し算</td>
+<td><code>=100+20</code></td>
+<td style="text-align: right;">120</td>
+</tr>
+<tr class="even">
+<td>引き算</td>
+<td><code>=100-20</code></td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="odd">
+<td>掛け算</td>
+<td><code>=100*2</code></td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr class="even">
+<td>割り算</td>
+<td><code>=100/2</code></td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr class="odd">
+<td>平方：<span class="math inline">\(5^2\)</span></td>
+<td><code>=5^2</code></td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="even">
+<td>累乗：<span class="math inline">\(2^3\)</span></td>
+<td><code>=2^3</code></td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td>平方根：<span class="math inline">\(\sqrt{25}\)</span></td>
+<td><code>=SQRT(25)</code></td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td>立方根：<span class="math inline">\(\sqrt[3]{8}\)</span></td>
+<td><code>=8^(1/3)</code></td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td>正の4乗根：<span class="math inline">\(\sqrt[4]{16}\)</span></td>
+<td><code>=16^(1/4)</code></td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>常用対数：<span class="math inline">\(\log_{10}(1000)\)</span></td>
+<td><code>=LOG(1000,10)</code></td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>底が2の対数：<span class="math inline">\(\log_2(8)\)</span></td>
+<td><code>=LOG(8,2)</code></td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td>自然対数：<span class="math inline">\(\ln(2)\)</span></td>
+<td><code>=LN(2)</code></td>
+<td style="text-align: right;">約0.69315</td>
+</tr>
+<tr class="odd">
+<td>指数関数：<span class="math inline">\(e^2\)</span></td>
+<td><code>=EXP(2)</code></td>
+<td style="text-align: right;">約7.38906</td>
+</tr>
+</tbody>
+</table>
+<p>計算の順序を指定するときは括弧 <code>()</code> を使います。</p>
+<ul>
+<li><code>=100+20*3</code> の結果は <strong>160</strong>。</li>
+<li><code>=(100+20)*3</code> の結果は <strong>360</strong>。</li>
+</ul>
+<p><code>LOG(数値,底)</code> の底を省略すると10になります。<code>SQRT</code>・<code>LOG</code>・<code>LN</code>・<code>EXP</code> も数式の中に入力します。</p>
+<p><strong>例：セルの値を使って計算する</strong></p>
+<p>次の内容を入力してください。表の左端は行番号です。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">行</th>
+<th>A列：項目</th>
+<th style="text-align: right;">B列：金額（円）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td>収入</td>
+<td style="text-align: right;">10000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td>支出</td>
+<td style="text-align: right;">6500</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td>残額</td>
+<td style="text-align: right;">ここに数式を入力</td>
+</tr>
+</tbody>
+</table>
+<p>B3に次の数式を入力します。</p>
+<pre class="text"><code>=B1-B2</code></pre>
+<p>結果は <strong>3500</strong> です。B2の支出を <code>7000</code> に変更すると、B3も <strong>3000</strong> に変わります。数値を数式に直接書く代わりにセルを参照すると、元のデータの変更を計算に反映できます。</p>
+<p>金額は数値だけを入力します。例えば、<code>10000円</code> ではなく <code>10000</code> と入力し、単位は見出しに書きます。</p>
 </section>
-<section id="演習の進め方" class="level2">
-<h2 class="anchored" data-anchor-id="演習の進め方">演習の進め方</h2>
+<section id="練習1数式をexcelに入力する" class="level3 unlisted practice">
+<h3 class="unlisted anchored" data-anchor-id="練習1数式をexcelに入力する">練習1：数式をExcelに入力する</h3>
+<p>次の数式をExcelに入力し、値を求めてください。</p>
 <ol type="1">
-<li>各知識点の説明と計算例を確認する。</li>
-<li>説明に続く練習に取り組み、数式と計算結果を確認する。</li>
-<li>データや参照先を変更し、結果が変わる理由を考える。</li>
+<li><p><span class="math inline">\(\displaystyle \frac{(120+80)\times 3-150}{5}+2^4\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \frac{\sqrt{144}+3^2}{\sqrt{25}}\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle 10000\left(1+\frac{0.06}{12}\right)^{24}\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \frac{\sqrt[3]{125}+\sqrt[4]{81}}{2^3-4}\)</span></p></li>
 </ol>
 </section>
-<section id="演習一覧" class="level2">
-<h2 class="anchored" data-anchor-id="演習一覧">演習一覧</h2>
-<p>第1回の教材・演習問題を掲載しています。第2回以降は準備中です。日程は講義資料に基づきます。</p>
+</section>
+<section id="関数の入力" class="level2">
+<h2 class="anchored" data-anchor-id="関数の入力">2. 関数の入力</h2>
+<section id="関数とは" class="level3">
+<h3 class="anchored" data-anchor-id="関数とは">関数とは</h3>
+<p><strong>関数</strong>とは、合計や平均など、あらかじめ用意された計算を行う仕組みです。基本的な書き方は次のとおりです。</p>
+<pre class="text"><code>=関数名(計算の対象)</code></pre>
+<p>括弧の中に指定する値やセル範囲を<strong>引数</strong>といいます。例えば <code>B2:B6</code> は、B2からB6までの5つのセルを表します。範囲の指定には半角のコロン <code>:</code> を使います。</p>
+</section>
+<section id="基本的な関数" class="level3">
+<h3 class="anchored" data-anchor-id="基本的な関数">基本的な関数</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;">回</th>
-<th style="text-align: center;">日付</th>
-<th>テーマ</th>
-<th>教材</th>
+<th>関数</th>
+<th>用途</th>
+<th>例：</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">第1回</td>
-<td style="text-align: center;">9月14日</td>
-<td><a href="./lessons/01/index.html">Excelの基本操作</a></td>
-<td>掲載済み</td>
+<td><code>SUM</code></td>
+<td>数値の合計</td>
+<td><code>=SUM(B2:B6)</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">第2回</td>
-<td style="text-align: center;">9月28日</td>
-<td>お金の時間価値 I</td>
-<td>準備中</td>
+<td><code>AVERAGE</code></td>
+<td>数値の平均</td>
+<td><code>=AVERAGE(B2:B6)</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">第3回</td>
-<td style="text-align: center;">10月5日</td>
-<td>お金の時間価値 II</td>
-<td>準備中</td>
+<td><code>MAX</code></td>
+<td>最大値</td>
+<td><code>=MAX(B2:B6)</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">第4回</td>
-<td style="text-align: center;">10月12日</td>
-<td>投資の意思決定</td>
-<td>準備中</td>
+<td><code>MIN</code></td>
+<td>最小値</td>
+<td><code>=MIN(B2:B6)</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">第5回</td>
-<td style="text-align: center;">10月19日</td>
-<td>債券 I</td>
-<td>準備中</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">第6回</td>
-<td style="text-align: center;">10月26日</td>
-<td>債券 II</td>
-<td>準備中</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">第7回</td>
-<td style="text-align: center;">11月2日</td>
-<td>中間テスト</td>
-<td>準備中</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">第8回</td>
-<td style="text-align: center;">11月9日</td>
-<td>株式</td>
-<td>準備中</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">第9回</td>
-<td style="text-align: center;">11月16日</td>
-<td>ポートフォリオ理論 I</td>
-<td>準備中</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">第10回</td>
-<td style="text-align: center;">11月23日</td>
-<td>ポートフォリオ理論 II</td>
-<td>準備中</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">第11回</td>
-<td style="text-align: center;">11月30日</td>
-<td>ポートフォリオ理論 III</td>
-<td>準備中</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">第12回</td>
-<td style="text-align: center;">12月7日</td>
-<td>ポートフォリオ理論 IV</td>
-<td>準備中</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">第13回</td>
-<td style="text-align: center;">12月14日</td>
-<td>企業価値評価 I</td>
-<td>準備中</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">第14回</td>
-<td style="text-align: center;">12月21日</td>
-<td>企業価値評価 II</td>
-<td>準備中</td>
+<td><code>COUNT</code></td>
+<td>数値が入っているセルの個数</td>
+<td><code>=COUNT(B2:B6)</code></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="授業情報" class="level2">
-<h2 class="anchored" data-anchor-id="授業情報">授業情報</h2>
+<p><code>COUNT</code> は、文字が入っているセルや空白セルを数えません。また、<code>AVERAGE</code> は空白セルを除いて平均を求めますが、数値の <code>0</code> が入ったセルは計算に含めます。</p>
+<p><strong>例：関数を使って支出を集計する</strong></p>
+<p>新しいシートで、次の表をA1から入力してください。</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>項目</th>
-<th>内容</th>
+<th>日</th>
+<th style="text-align: right;">支出（円）</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>科目名</td>
-<td>ファイナンス入門演習</td>
+<td>月曜日</td>
+<td style="text-align: right;">1000</td>
 </tr>
 <tr class="even">
-<td>年度</td>
-<td>2026年度</td>
+<td>火曜日</td>
+<td style="text-align: right;">1500</td>
 </tr>
 <tr class="odd">
-<td>担当教員</td>
-<td>何　協</td>
+<td>水曜日</td>
+<td style="text-align: right;">2000</td>
 </tr>
 <tr class="even">
-<td>所属</td>
-<td>東京理科大学 経営学部経営学科</td>
+<td>木曜日</td>
+<td style="text-align: right;">500</td>
 </tr>
 <tr class="odd">
-<td>時限・教室</td>
-<td>後日案内</td>
+<td>金曜日</td>
+<td style="text-align: right;">1000</td>
+</tr>
+</tbody>
+</table>
+<p>B7に <code>=SUM(B2:B6)</code> を入力すると、合計 <strong>6000</strong> が表示されます。B8に <code>=AVERAGE(B2:B6)</code> を入力すると、平均 <strong>1200</strong> が表示されます。</p>
+<p>関数は直接入力するほか、<code>=SUM(</code> まで入力してからマウスで対象のセル範囲を選び、<code>)</code> で閉じることもできます。<strong>計算対象の範囲に、数式を入力するセル自身を含めない</strong>ようにしてください。</p>
+</section>
+<section id="練習2関数を使って支出を集計する" class="level3 unlisted practice">
+<h3 class="unlisted anchored" data-anchor-id="練習2関数を使って支出を集計する">練習2：関数を使って支出を集計する</h3>
+<p>新しいシートに、次の表をA1から入力してください。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>月</th>
+<th style="text-align: right;">支出（円）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4月</td>
+<td style="text-align: right;">12000</td>
+</tr>
+<tr class="even">
+<td>5月</td>
+<td style="text-align: right;">18000</td>
+</tr>
+<tr class="odd">
+<td>6月</td>
+<td style="text-align: right;">15000</td>
+</tr>
+<tr class="even">
+<td>7月</td>
+<td style="text-align: right;">10000</td>
+</tr>
+<tr class="odd">
+<td>8月</td>
+<td style="text-align: right;">20000</td>
+</tr>
+</tbody>
+</table>
+<p>A8～A12に「合計」「平均」「最大値」「最小値」「データ数」と入力してください。B8～B12に、それぞれ <code>SUM</code>、<code>AVERAGE</code>、<code>MAX</code>、<code>MIN</code>、<code>COUNT</code> を使って結果を求めてください。計算対象は <strong>B2:B6</strong> とします。</p>
+</section>
+</section>
+<section id="相対参照絶対参照複合参照" class="level2">
+<h2 class="anchored" data-anchor-id="相対参照絶対参照複合参照">3. 相対参照・絶対参照・複合参照</h2>
+<section id="相対参照コピー先に合わせて参照先が変わる" class="level3">
+<h3 class="anchored" data-anchor-id="相対参照コピー先に合わせて参照先が変わる">相対参照：コピー先に合わせて参照先が変わる</h3>
+<p><code>B2</code> のような通常のセル参照を<strong>相対参照</strong>といいます。数式を別のセルへコピーすると、移動した行数・列数に応じて参照先も変わります。</p>
+<p><strong>例：相対参照で数式をコピーする</strong></p>
+<p>D2に <code>=B2*C2</code> と入力し、1行下のD3へコピーすると、数式は <code>=B3*C3</code> に変わります。各行の単価と数量を掛けたい場合に便利です。</p>
+<p>セル右下の小さな四角（フィルハンドル）を下へドラッグすると、数式を下の行へコピーできます。コピーと貼り付けでも同じように参照先が変わります。</p>
+</section>
+<section id="絶対参照コピーしても参照先が変わらない" class="level3">
+<h3 class="anchored" data-anchor-id="絶対参照コピーしても参照先が変わらない">絶対参照：コピーしても参照先が変わらない</h3>
+<p><code>$B$1</code> のように、列と行の前に半角の <strong><code>$</code></strong> を付けた参照を<strong>絶対参照</strong>といいます。数式をコピーしても、参照先はB1のままです。</p>
+<p><strong>例：絶対参照で共通の利率を使う</strong></p>
+<p>全員に共通する利率をB1に置き、元本をB4、B5、B6に入力する場合、各行の利息は次のように計算できます。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>数式を入力するセル</th>
+<th>数式</th>
+<th>計算の対象</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C4</td>
+<td><code>=B4*$B$1</code></td>
+<td>B4の元本 × B1の利率</td>
+</tr>
+<tr class="even">
+<td>C5</td>
+<td><code>=B5*$B$1</code></td>
+<td>B5の元本 × B1の利率</td>
+</tr>
+<tr class="odd">
+<td>C6</td>
+<td><code>=B6*$B$1</code></td>
+<td>B6の元本 × B1の利率</td>
+</tr>
+</tbody>
+</table>
+<p>C4の数式を下へコピーすると、元本の参照先は変わりますが、利率の参照先は固定されます。ここで「固定」とは<strong>セルの場所を固定すること</strong>です。B1の利率を変更すれば、各行の計算結果も変わります。</p>
+</section>
+<section id="複合参照列だけまたは行だけを固定する" class="level3">
+<h3 class="anchored" data-anchor-id="複合参照列だけまたは行だけを固定する">複合参照：列だけ、または行だけを固定する</h3>
+<p>列と行のどちらか一方だけを固定する参照を<strong>複合参照</strong>といいます。<code>$</code> を列の文字の前に付けると列を、行番号の前に付けると行を固定します。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>参照の種類</th>
+<th>書き方</th>
+<th>1列右へコピー</th>
+<th>1行下へコピー</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>相対参照</td>
+<td><code>B2</code></td>
+<td><code>C2</code></td>
+<td><code>B3</code></td>
+</tr>
+<tr class="even">
+<td>絶対参照</td>
+<td><code>$B$2</code></td>
+<td><code>$B$2</code></td>
+<td><code>$B$2</code></td>
+</tr>
+<tr class="odd">
+<td>複合参照：列を固定</td>
+<td><code>$B2</code></td>
+<td><code>$B2</code></td>
+<td><code>$B3</code></td>
+</tr>
+<tr class="even">
+<td>複合参照：行を固定</td>
+<td><code>B$2</code></td>
+<td><code>C$2</code></td>
+<td><code>B$2</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>例：元本と年利率を組み合わせる</strong></p>
+<p>次のように、A列に元本、1行目に年利率を置き、各組合せの1年間の利息を求めます。税金・手数料は考えません。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">行</th>
+<th style="text-align: right;">A列：元本（円）</th>
+<th style="text-align: right;">B列</th>
+<th style="text-align: right;">C列</th>
+<th style="text-align: right;">D列</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">元本／年利率</td>
+<td style="text-align: right;">1%</td>
+<td style="text-align: right;">2%</td>
+<td style="text-align: right;">3%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: right;">10000</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: right;">20000</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">50000</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>B2に <code>=$A2*B$1</code> を入力し、右と下へコピーします。</p>
+<ul>
+<li><strong><code>$A2</code> はA列だけを固定</strong>します。右へコピーしても元本はA列を参照し、下へコピーすると行番号が変わります。</li>
+<li><strong><code>B$1</code> は1行目だけを固定</strong>します。下へコピーしても年利率は1行目を参照し、右へコピーすると列が変わります。</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>コピー先</th>
+<th>数式</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C2（右）</td>
+<td><code>=$A2*C$1</code></td>
+</tr>
+<tr class="even">
+<td>B3（下）</td>
+<td><code>=$A3*B$1</code></td>
+</tr>
+<tr class="odd">
+<td>C3（右下）</td>
+<td><code>=$A3*C$1</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="教材課題について" class="level2">
-<h2 class="anchored" data-anchor-id="教材課題について">教材・課題について</h2>
-<p>教材の公開時期、課題の提出方法・締切、成績評価については、授業で案内します。</p>
+<section id="練習3相対参照で数式をコピーする" class="level3 unlisted practice">
+<h3 class="unlisted anchored" data-anchor-id="練習3相対参照で数式をコピーする">練習3：相対参照で数式をコピーする</h3>
+<p>新しいシートに、次の表をA1から入力してください。D列の金額は空欄にします。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>商品</th>
+<th style="text-align: right;">単価（円）</th>
+<th style="text-align: right;">数量</th>
+<th>金額（円）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ノート</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">3</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ペン</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">5</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ファイル</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>D2に、B2とC2を掛ける数式を入力してください。</li>
+<li>D2の数式をD3、D4へコピーしてください。</li>
+<li>D3とD4を選び、数式バーで参照先の変化を確認してください。</li>
+<li>ノートの数量を4に変更し、金額が更新されることを確認してください。</li>
+</ol>
+</section>
+<section id="練習4絶対参照で共通の利率を使う" class="level3 unlisted practice">
+<h3 class="unlisted anchored" data-anchor-id="練習4絶対参照で共通の利率を使う">練習4：絶対参照で共通の利率を使う</h3>
+<p>新しいシートのA1に「年利率」、B1に <strong><code>2%</code></strong> を入力してください。続いて、3行目から次の内容を入力します。表の左端は行番号です。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">行</th>
+<th>A列</th>
+<th style="text-align: right;">B列</th>
+<th>C列</th>
+<th>D列</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td>預金</td>
+<td style="text-align: right;">元本（円）</td>
+<td>利息（円）</td>
+<td>元利合計（円）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td>A</td>
+<td style="text-align: right;">10000</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td>B</td>
+<td style="text-align: right;">20000</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td>C</td>
+<td style="text-align: right;">50000</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>ここでは、1年間の利息を「元本 × 年利率」で計算し、税金・手数料は考えません。</p>
+<ol type="1">
+<li>C4に利息を計算する数式を入力してください。元本には相対参照、年利率には絶対参照を使います。</li>
+<li>C4をC5、C6へコピーしてください。D4には元本と利息を足す数式を入力し、D5、D6へコピーしてください。</li>
+<li>B1を <code>3%</code> に変更し、すべての行の結果が更新されることを確認してください。</li>
+<li>B4の元本を15000に変更し、利息と元利合計が更新されることを確認してください。</li>
+</ol>
+</section>
+<section id="練習5列だけを固定して金額を計算する" class="level3 unlisted practice">
+<h3 class="unlisted anchored" data-anchor-id="練習5列だけを固定して金額を計算する">練習5：列だけを固定して金額を計算する</h3>
+<p>新しいシートに次の表をA1から入力し、E2:F4を空欄にしてください。</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>商品</th>
+<th style="text-align: right;">数量</th>
+<th style="text-align: right;">店舗Aの単価（円）</th>
+<th style="text-align: right;">店舗Bの単価（円）</th>
+<th>店舗Aの金額（円）</th>
+<th>店舗Bの金額（円）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ノート</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">160</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ペン</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">100</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ファイル</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">220</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>E2に「数量 × 店舗Aの単価」を計算する数式を入力してください。数量は<strong>B列だけを固定</strong>し、単価は相対参照を使います。</li>
+<li>E2をF2へコピーした後、E2:F2を4行目までコピーしてください。</li>
+<li>F4を選び、数式バーで数量と単価の参照先を確認してください。</li>
+</ol>
+</section>
+<section id="練習6行だけの固定を組み合わせて利息表を作る" class="level3 unlisted practice">
+<h3 class="unlisted anchored" data-anchor-id="練習6行だけの固定を組み合わせて利息表を作る">練習6：行だけの固定を組み合わせて利息表を作る</h3>
+<p>新しいシートに次の表をA1から入力し、B2:D4を空欄にしてください。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">元本（円）／年利率</th>
+<th>1.5%</th>
+<th>2.5%</th>
+<th>3.5%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">30000</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">60000</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">90000</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>B2に1年間の利息を計算する数式を入力してください。元本は<strong>A列だけを固定</strong>し、年利率は<strong>1行目だけを固定</strong>します。税金・手数料は考えません。</li>
+<li>数式を右と下へコピーしてB2:D4を完成させ、D4の数式バーで参照先を確認してください。</li>
+<li>C1の年利率を4%に変更し、C2:C4の利息が更新されることを確認してください。</li>
+</ol>
+</section>
 
 
 </section>
@@ -732,15 +1207,6 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./lessons/01/index.html" class="pagination-link" aria-label="第1回：Excelの基本操作">
-        <span class="nav-page-text">第1回：Excelの基本操作</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
