@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>第2回：お金の時間価値 I – ファイナンス入門演習</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37294f0e61b532b0f7ebd5ccc0471b30.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ada970402ac7522bda4dfe1cb552fea6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "一致なし",
+    "search-matching-documents-text": "一致した文書",
+    "search-copy-link-title": "検索へのリンクをコピー",
+    "search-hide-matches-text": "追加の検索結果を非表示",
+    "search-more-match-text": "追加の検索結果",
+    "search-more-matches-text": "追加の検索結果",
+    "search-clear-button-title": "消去",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "検索",
+    "search-label": "サーチ"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/02/index.html">第2回：お金の時間価値 I</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">ファイナンス入門演習</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="サーチ"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第1回：Excelの基本操作</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">第2回：お金の時間価値 I</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#excelファイルの使い方" id="toc-excelファイルの使い方" class="nav-link active" data-scroll-target="#excelファイルの使い方">Excelファイルの使い方</a></li>
+  <li><a href="#到達目標" id="toc-到達目標" class="nav-link" data-scroll-target="#到達目標">到達目標</a></li>
+  <li><a href="#重要な公式" id="toc-重要な公式" class="nav-link" data-scroll-target="#重要な公式">重要な公式</a>
+  <ul class="collapse">
+  <li><a href="#キャッシュフロー" id="toc-キャッシュフロー" class="nav-link" data-scroll-target="#キャッシュフロー">キャッシュ・フロー</a></li>
+  <li><a href="#現在価値将来価値と利息" id="toc-現在価値将来価値と利息" class="nav-link" data-scroll-target="#現在価値将来価値と利息">現在価値・将来価値と利息</a></li>
+  <li><a href="#単利による将来価値" id="toc-単利による将来価値" class="nav-link" data-scroll-target="#単利による将来価値">単利による将来価値</a></li>
+  <li><a href="#複利による将来価値年1回複利" id="toc-複利による将来価値年1回複利" class="nav-link" data-scroll-target="#複利による将来価値年1回複利">複利による将来価値（年1回複利）</a></li>
+  <li><a href="#複利による将来価値年-m-回複利" id="toc-複利による将来価値年-m-回複利" class="nav-link" data-scroll-target="#複利による将来価値年-m-回複利">複利による将来価値（年 <span class="math inline">\(m\)</span> 回複利）</a></li>
+  <li><a href="#連続複利による将来価値" id="toc-連続複利による将来価値" class="nav-link" data-scroll-target="#連続複利による将来価値">連続複利による将来価値</a></li>
+  <li><a href="#普通年金の将来価値" id="toc-普通年金の将来価値" class="nav-link" data-scroll-target="#普通年金の将来価値">普通年金の将来価値</a></li>
+  <li><a href="#毎期変化するキャッシュフローの将来価値" id="toc-毎期変化するキャッシュフローの将来価値" class="nav-link" data-scroll-target="#毎期変化するキャッシュフローの将来価値">毎期変化するキャッシュ・フローの将来価値</a></li>
+  </ul></li>
+  <li><a href="#fv関数将来価値を求める" id="toc-fv関数将来価値を求める" class="nav-link" data-scroll-target="#fv関数将来価値を求める">FV関数：将来価値を求める</a></li>
+  <li><a href="#練習1単利による将来価値" id="toc-練習1単利による将来価値" class="nav-link" data-scroll-target="#練習1単利による将来価値">練習1：単利による将来価値</a></li>
+  <li><a href="#練習2-1年2回複利による将来価値" id="toc-練習2-1年2回複利による将来価値" class="nav-link" data-scroll-target="#練習2-1年2回複利による将来価値">練習2-1：年2回複利による将来価値</a></li>
+  <li><a href="#練習2-2付利回数と将来価値" id="toc-練習2-2付利回数と将来価値" class="nav-link" data-scroll-target="#練習2-2付利回数と将来価値">練習2-2：付利回数と将来価値</a></li>
+  <li><a href="#練習3連続複利による将来価値" id="toc-練習3連続複利による将来価値" class="nav-link" data-scroll-target="#練習3連続複利による将来価値">練習3：連続複利による将来価値</a></li>
+  <li><a href="#練習4毎年一定のキャッシュフロー" id="toc-練習4毎年一定のキャッシュフロー" class="nav-link" data-scroll-target="#練習4毎年一定のキャッシュフロー">練習4：毎年一定のキャッシュ・フロー</a></li>
+  <li><a href="#練習53年後から始まるキャッシュフロー" id="toc-練習53年後から始まるキャッシュフロー" class="nav-link" data-scroll-target="#練習53年後から始まるキャッシュフロー">練習5：3年後から始まるキャッシュ・フロー</a></li>
+  <li><a href="#練習6毎年異なるキャッシュフロー" id="toc-練習6毎年異なるキャッシュフロー" class="nav-link" data-scroll-target="#練習6毎年異なるキャッシュフロー">練習6：毎年異なるキャッシュ・フロー</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">第2回：お金の時間価値 I</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>使用するExcelファイルのダウンロード</strong></p>
+<p><a href="files/ファイナンス入門演習_第2回.xlsx" class="btn btn-primary" download="ファイナンス入門演習_第2回.xlsx">ファイナンス入門演習_第2回.xlsxをダウンロード</a></p>
+<section id="excelファイルの使い方" class="level2">
+<h2 class="anchored" data-anchor-id="excelファイルの使い方">Excelファイルの使い方</h2>
+<p>第2回講義の練習1〜6をExcelで計算します。黄色のセルに数式を入力してください。</p>
+<p>Excelでは、掛け算に <code>*</code>、割り算に <code>/</code>、累乗に <code>^</code> を使います。数式は半角の <code>=</code> から入力します。年率3%は、<code>3%</code> または <code>0.03</code> と入力してください。</p>
+<ol type="1">
+<li>「練習1」から順に開き、黄色のセルに数式を入力します。青字の数値は問題で与えられた条件です。</li>
+<li>数式には、できるだけ条件のセルを参照します。練習4〜6では、共通の年率と評価時点を <code>$C$10</code>、<code>$C$11</code> として固定し、数式を下へコピーします。</li>
+<li>計算後に、入力した数式のセル参照と運用期間を確認します。FV関数が使える問題では、「FV関数」シートを参考に検算します。</li>
+</ol>
+<p>金額は円、期間は年です。練習2-1の計算結果は小数第2位、練習2-2は小数第5位、練習3の将来価値は小数第1位、練習4〜6は小数第4位まで表示します。練習3で計算する <span class="math inline">\(e^{r\times t}\)</span> は小数第6位まで表示します。途中の計算は丸めず、セルの表示形式で桁数を調整します。</p>
+</section>
+<section id="到達目標" class="level2">
+<h2 class="anchored" data-anchor-id="到達目標">到達目標</h2>
+<ul>
+<li>単利と複利（連続複利を含む）による将来価値を計算できる。</li>
+<li>FV関数とEXP関数の使い方を理解し、計算できる。</li>
+<li>付利回数 <span class="math inline">\(m\)</span> と将来価値 <span class="math inline">\(FV\)</span> の関係を、計算と散布図で確認できる。</li>
+</ul>
+</section>
+<section id="重要な公式" class="level2">
+<h2 class="anchored" data-anchor-id="重要な公式">重要な公式</h2>
+<p>第2回の講義で扱った重要な公式を確認しましょう。<span class="math inline">\(PV\)</span> は現在価値（元本）、<span class="math inline">\(FV_t\)</span> は <span class="math inline">\(t\)</span> 年後の将来価値、<span class="math inline">\(r\)</span> は年率の金利を表します。以下では、金利は一定とします。</p>
+<section id="キャッシュフロー" class="level3">
+<h3 class="anchored" data-anchor-id="キャッシュフロー">キャッシュ・フロー</h3>
+<p>各時点のキャッシュ・インフローからキャッシュ・アウトフローを差し引いた金額を、ネット・キャッシュ・フローといいます。以下では、これをその時点のキャッシュ・フロー <span class="math inline">\(CF_t\)</span> と表します。</p>
+<p><span id="eq-net-cash-flow"><span class="math display">\[
+CF_t \equiv CF_{\mathrm{net},t}
+=CF_{\mathrm{in},t}-CF_{\mathrm{out},t}
+\tag{1}\]</span></span></p>
+<p><span class="math inline">\(CF_{\mathrm{in},t}\)</span> と <span class="math inline">\(CF_{\mathrm{out},t}\)</span> は、流入額と流出額をそれぞれ非負の金額で表します。</p>
+</section>
+<section id="現在価値将来価値と利息" class="level3">
+<h3 class="anchored" data-anchor-id="現在価値将来価値と利息">現在価値・将来価値と利息</h3>
+<p>将来のお金を現在の時点の価値に換算したものを<strong>現在価値</strong>、現在のお金を将来のある時点の価値に換算したものを<strong>将来価値</strong>といいます。元本を運用すると、将来価値は元本と利息の合計になります。</p>
+<p><span id="eq-future-value-interest"><span class="math display">\[
+FV_t=PV+\text{利息}
+\tag{2}\]</span></span></p>
+<p>特に、年率 <span class="math inline">\(r\)</span> で1年間運用し、年末に利息を受け取る場合は、次のようになります。</p>
+<p><span id="eq-future-value-one-year"><span class="math display">\[
+FV_1=PV+PV\times r=PV\times(1+r)
+\tag{3}\]</span></span></p>
+</section>
+<section id="単利による将来価値" class="level3">
+<h3 class="anchored" data-anchor-id="単利による将来価値">単利による将来価値</h3>
+<p><strong>単利</strong>は、元本に対してのみ利息が付く計算方法です。運用期間が <span class="math inline">\(t\)</span> 年の場合、利息は <span class="math inline">\(PV\times r\times t\)</span> となります。</p>
+<p><span id="eq-simple-interest"><span class="math display">\[
+FV_t=PV\times(1+r\times t)
+\tag{4}\]</span></span></p>
+</section>
+<section id="複利による将来価値年1回複利" class="level3">
+<h3 class="anchored" data-anchor-id="複利による将来価値年1回複利">複利による将来価値（年1回複利）</h3>
+<p><strong>複利</strong>は、元本と、それまでに発生した利息に対して利息が付く計算方法です。年に1回、利息を元本に組み入れる場合は、次のようになります。</p>
+<p><span id="eq-compound-annual"><span class="math display">\[
+FV_t=PV\times(1+r)^t
+\tag{5}\]</span></span></p>
+</section>
+<section id="複利による将来価値年-m-回複利" class="level3">
+<h3 class="anchored" data-anchor-id="複利による将来価値年-m-回複利">複利による将来価値（年 <span class="math inline">\(m\)</span> 回複利）</h3>
+<p>1年に <span class="math inline">\(m\)</span> 回、利息を元本に組み入れる場合、1期間あたりの利率は <span class="math inline">\(r/m\)</span>、<span class="math inline">\(t\)</span> 年間の付利回数は <span class="math inline">\(mt\)</span> です。</p>
+<p><span id="eq-compound-m-times"><span class="math display">\[
+FV_t=PV\times\left(1+\frac{r}{m}\right)^{mt}
+\tag{6}\]</span></span></p>
+<p><span class="math inline">\(m=1\)</span> は年1回複利、<span class="math inline">\(m=2\)</span> は半年複利です。</p>
+</section>
+<section id="連続複利による将来価値" class="level3">
+<h3 class="anchored" data-anchor-id="連続複利による将来価値">連続複利による将来価値</h3>
+<p>付利回数 <span class="math inline">\(m\)</span> を無限大にした場合を、<strong>連続複利</strong>といいます。</p>
+<p><span id="eq-compound-continuous"><span class="math display">\[
+FV_t
+=PV\times\lim_{m\to\infty}\left(1+\frac{r}{m}\right)^{mt}
+=PV\times e^{rt}
+\tag{7}\]</span></span></p>
+<p><span class="math inline">\(e\)</span> は自然対数の底です。</p>
+</section>
+<section id="普通年金の将来価値" class="level3">
+<h3 class="anchored" data-anchor-id="普通年金の将来価値">普通年金の将来価値</h3>
+<p>同じ金額のキャッシュ・フローが一定期間ごとに支払われるものを<strong>年金</strong>といい、最初の支払いが1期間目の期末に生じるものを<strong>普通年金</strong>といいます。</p>
+<p>毎年末に一定額 <span class="math inline">\(CF\)</span> を受け取り、<span class="math inline">\(N\)</span> 年目まで続く場合、年率 <span class="math inline">\(r\)</span>（年1回複利）による <span class="math inline">\(N\)</span> 年後の将来価値は、次のようになります。</p>
+<p><span id="eq-ordinary-annuity-fv"><span class="math display">\[
+\begin{aligned}
+FV_N
+&amp;=CF\times(1+r)^{N-1}+CF\times(1+r)^{N-2}
++\cdots+CF\\
+&amp;=\sum_{t=1}^{N}CF\times(1+r)^{N-t}\\
+&amp;=CF\times\frac{(1+r)^N-1}{r}\qquad(r\neq0)
+\end{aligned}
+\tag{8}\]</span></span></p>
+<p><span class="math inline">\(r=0\)</span> のときは、<span class="math inline">\(FV_N=CF\times N\)</span> です。<span class="math inline">\(N\)</span> 年目の期末に受け取る最後の <span class="math inline">\(CF\)</span> には、利息が付きません。</p>
+</section>
+<section id="毎期変化するキャッシュフローの将来価値" class="level3">
+<h3 class="anchored" data-anchor-id="毎期変化するキャッシュフローの将来価値">毎期変化するキャッシュ・フローの将来価値</h3>
+<p>毎年のキャッシュ・フローが異なる場合も、それぞれを<strong>同じ時点の価値にそろえてから合計</strong>します。年率 <span class="math inline">\(r\)</span>（年1回複利）で運用する場合、<span class="math inline">\(N\)</span> 年後の将来価値は、次のようになります。</p>
+<p><span id="eq-multiple-cash-flows-fv"><span class="math display">\[
+\begin{aligned}
+FV_N
+&amp;=CF_1\times(1+r)^{N-1}+CF_2\times(1+r)^{N-2}
++\cdots+CF_N\\
+&amp;=\sum_{t=1}^{N}CF_t\times(1+r)^{N-t}
+\end{aligned}
+\tag{9}\]</span></span></p>
+<p><span class="math inline">\(t\)</span> 年後に生じる <span class="math inline">\(CF_t\)</span> の運用期間は、<strong>評価時点 <span class="math inline">\(N\)</span> − 発生時点 <span class="math inline">\(t\)</span></strong> です。</p>
+</section>
+</section>
+<section id="fv関数将来価値を求める" class="level2">
+<h2 class="anchored" data-anchor-id="fv関数将来価値を求める">FV関数：将来価値を求める</h2>
+<p>Excelの <strong>FV関数</strong> は、一定の利率のもとで、複利による将来価値を求める関数です。最初に一度だけ投資する場合や、毎期同じ金額の支払い・受け取りがある場合に使えます。ダウンロードしたExcelの「FV関数」シートでも、条件を変えて計算を確認できます。</p>
+<pre class="text"><code>=FV(利率, 期間数, 定期支払額, [現在価値], [支払期日])</code></pre>
+<p>角括弧 <code>[ ]</code> は、省略できる引数を示します。実際の数式に角括弧は入力しません。</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>引数</th>
+<th>指定する内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>利率</td>
+<td><strong>1期間あたり</strong>の利率。年率 <span class="math inline">\(r\)</span>、年 <span class="math inline">\(m\)</span> 回複利なら <span class="math inline">\(r/m\)</span></td>
+</tr>
+<tr class="even">
+<td>期間数</td>
+<td>運用期間全体の期数。<span class="math inline">\(t\)</span> 年間、年 <span class="math inline">\(m\)</span> 回複利なら <span class="math inline">\(mt\)</span></td>
+</tr>
+<tr class="odd">
+<td>定期支払額</td>
+<td>各期の一定の支払額または受取額。定期的な出入りがなければ0</td>
+</tr>
+<tr class="even">
+<td>現在価値</td>
+<td>現在の時点における金額。支払い・受け取りの向きに応じた符号で入力。省略時は0</td>
+</tr>
+<tr class="odd">
+<td>支払期日</td>
+<td>定期的な支払い・受け取りが各期末なら0、各期首なら1。省略すると0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>利率と期間数の時間単位をそろえる</strong>ことが大切です。例えば、半年複利なら年率を2で割り、年数を2倍します。</p>
+<p>符号：キャッシュ・インフローは＋、キャッシュ・アウトフローは－で表します。</p>
+<p><strong>例：最初に一度だけ投資する場合</strong></p>
+<p>1,000円を年率2%の年2回複利で3年間運用します。「FV関数」シートの条件は次のとおりです。表の左端は行番号です。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">行</th>
+<th>B列：項目</th>
+<th style="text-align: right;">C列：値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td>元本 PV（円）</td>
+<td style="text-align: right;">1000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">22</td>
+<td>年率 r</td>
+<td style="text-align: right;">2%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td>運用期間 t（年）</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">24</td>
+<td>年あたり付利回数 m</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+<p>C26に次の数式を入力します。</p>
+<pre class="text"><code>=FV(C22/C24,C23*C24,0,-C21)</code></pre>
+<p>結果は約 <strong>1,061.52円</strong>です。C22/C24は1期間あたりの利率1%、C23*C24は総期数6を表します。途中の積立額は0です。C21には元本の金額を正で記録し、関数には投資時の支払いとして <code>-C21</code> を渡します。</p>
+<p>C27に次の複利の式を入力すると、同じ結果になります。</p>
+<pre class="text"><code>=C21*(1+C22/C24)^(C24*C23)</code></pre>
+<p>C21の元本を <code>2000</code> に変更すると、C26とC27はいずれも約 <strong>2,123.04円</strong>に変わります。条件を変えても、2つの方法による計算結果が一致することを確認してください。</p>
+<p><strong>例：毎期同じ金額を積み立てる場合</strong></p>
+<p>毎年末に200円ずつ、年率3%の年1回複利で4年間積み立てる普通年金を考えます。「FV関数」シートの条件は次のとおりです。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">行</th>
+<th>B列：項目</th>
+<th style="text-align: right;">C列：値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">35</td>
+<td>毎期の積立額（円）</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">36</td>
+<td>年率 r</td>
+<td style="text-align: right;">3%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">37</td>
+<td>積立期間（年）</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">38</td>
+<td>支払期日（期末＝0）</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p>C40に次の数式を入力します。</p>
+<pre class="text"><code>=FV(C36,C37,-C35,0,C38)</code></pre>
+<p>結果は <strong>836.7254円</strong>です。ここで入力するのは毎期の積立という支払いなので、<code>-C35</code> とします。初期投資額は0、支払期日は期末なので0とします。最後の積立額には利息が付きません。</p>
+<p>C35の積立額を <code>400</code> に変更すると、C40は <strong>1,673.4508円</strong>に変わります。確認後は、C21を1000、C35を200に戻してください。</p>
+</section>
+<section id="練習1単利による将来価値" class="level2">
+<h2 class="anchored" data-anchor-id="練習1単利による将来価値">練習1：単利による将来価値</h2>
+<div class="practice">
+<p>100円を年率3%の単利で運用すると、8年後の将来価値はいくらですか。</p>
+</div>
+<p>「練習1」シートを使います。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C10</td>
+<td>元本：100円</td>
+</tr>
+<tr class="even">
+<td>C11</td>
+<td>年率：3%</td>
+</tr>
+<tr class="odd">
+<td>C12</td>
+<td>運用期間：8年</td>
+</tr>
+<tr class="even">
+<td><strong>C16</strong></td>
+<td><strong>将来価値を求める数式を入力</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>C17</strong></td>
+<td><strong>確認：将来価値から元本を差し引き、利息を求める</strong></td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+計算後に確認：練習1の解答
+</summary>
+<p>単利による将来価値は、</p>
+<p><span class="math display">\[100\times(1+0.03\times8)=124\text{（円）}\]</span></p>
+<p>であり、124円です。C16に次の式を入力します。</p>
+<pre class="text"><code>=C10*(1+C11*C12)</code></pre>
+<p>C17には <code>=C16-C10</code> を入力します。利息は24円です。</p>
+</details>
+</section>
+<section id="練習2-1年2回複利による将来価値" class="level2">
+<h2 class="anchored" data-anchor-id="練習2-1年2回複利による将来価値">練習2-1：年2回複利による将来価値</h2>
+<div class="practice">
+<p>100円を年率3%の年2回複利で運用すると、8年後の将来価値はいくらですか。</p>
+</div>
+<p>「練習2」シートを使います。C10〜C12は練習1と同じ条件で、<strong>C13に年あたり付利回数の2</strong>が入っています。</p>
+<ol type="1">
+<li>C16に、年2回複利による将来価値を求める数式を入力してください。</li>
+<li>C17に、将来価値から元本を差し引いて利息を求める数式を入力してください。</li>
+</ol>
+<p>1回あたりの利率と、8年間の付利回数を区別して考えます。</p>
+<details>
+<summary>
+計算後に確認：練習2-1の解答
+</summary>
+<p><span class="math display">\[100\times\left(1+\frac{0.03}{2}\right)^{2\times8}\approx126.90\text{（円）}\]</span></p>
+<p>C16に入力する式は次のとおりです。</p>
+<pre class="text"><code>=C10*(1+C11/C13)^(C13*C12)</code></pre>
+<p>1回あたりの利率は1.5%、付利回数は16回です。C17に <code>=C16-C10</code> を入力すると、利息は約26.90円になります。</p>
+</details>
+</section>
+<section id="練習2-2付利回数と将来価値" class="level2">
+<h2 class="anchored" data-anchor-id="練習2-2付利回数と将来価値">練習2-2：付利回数と将来価値</h2>
+<div class="practice">
+<p>100円を年率1%で1年間運用する。年あたりの付利回数 <span class="math inline">\(m\)</span> を1、2、4、6、12、24回としたときの将来価値 <span class="math inline">\(FV\)</span> を計算し、<span class="math inline">\(m\)</span> が増えると <span class="math inline">\(FV\)</span> がどのように変化するか確認しなさい。</p>
+<p>横軸を <span class="math inline">\(m\)</span>、縦軸を <span class="math inline">\(FV\)</span> とする散布図を作成しなさい。</p>
+</div>
+<p>「練習2」シートの下段にある「練習2-2」を使います。<strong>練習2-1とは条件が異なり、元本100円、年率1%、運用期間1年</strong>です。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C32</td>
+<td>元本：100円</td>
+</tr>
+<tr class="even">
+<td>C33</td>
+<td>年率：1%</td>
+</tr>
+<tr class="odd">
+<td>C34</td>
+<td>運用期間：1年</td>
+</tr>
+<tr class="even">
+<td>B38:B43</td>
+<td>付利回数 <span class="math inline">\(m\)</span>：1、2、4、6、12、24</td>
+</tr>
+<tr class="odd">
+<td><strong>C38:C43</strong></td>
+<td><strong>将来価値 <span class="math inline">\(FV\)</span> を求める数式を入力</strong></td>
+</tr>
+<tr class="even">
+<td>D38:D43</td>
+<td>1回あたりの利率 <span class="math inline">\(r/m\)</span> を求める</td>
+</tr>
+<tr class="odd">
+<td>E38:E43</td>
+<td>運用期間全体の付利回数 <span class="math inline">\(mt\)</span> を求める</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>38行目に数式を入力し、条件のセルを固定して43行目までコピーします。FVは<strong>小数第5位</strong>まで表示してください。</li>
+<li><strong>B37:C43</strong>を選択し、Excelの「挿入」→「散布図（直線とマーカー）」を選びます。横軸を <strong>m（回／年）</strong>、縦軸を <strong>FV（円）</strong> とし、表の右側に配置してください。</li>
+<li><span class="math inline">\(m\)</span> が増えるとFVはどうなるか、またFVの増え方はどうなるかを説明してください。</li>
+</ol>
+<p>横軸は数値軸を使い、<span class="math inline">\(m\)</span> の間隔を正しく表します。差が小さいため、必要に応じて縦軸の表示範囲を101.00000〜101.00500円に調整してください。</p>
+<details>
+<summary>
+計算後に確認：練習2-2の解答
+</summary>
+<p><span class="math display">\[FV=100\left(1+\frac{0.01}{m}\right)^m\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>入力する数式</th>
+<th>コピー先</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C38</td>
+<td><code>=$C$32*(1+$C$33/B38)^(B38*$C$34)</code></td>
+<td>C43まで</td>
+</tr>
+<tr class="even">
+<td>D38</td>
+<td><code>=$C$33/B38</code></td>
+<td>D43まで</td>
+</tr>
+<tr class="odd">
+<td>E38</td>
+<td><code>=B38*$C$34</code></td>
+<td>E43まで</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(m\)</span>（回／年）</th>
+<th style="text-align: right;"><span class="math inline">\(FV\)</span>（円）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">101.00000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">101.00250</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">101.00376</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">101.00418</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">101.00460</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">101.00481</td>
+</tr>
+</tbody>
+</table>
+<p>年率と運用期間を一定にしたまま <span class="math inline">\(m\)</span> を増やすと、FVは増加します。ただし、FVの増え方は次第に緩やかになります。<span class="math inline">\(m\)</span> を変える際に年率 <span class="math inline">\(r\)</span> を変えないことが大切です。</p>
+</details>
+</section>
+<section id="練習3連続複利による将来価値" class="level2">
+<h2 class="anchored" data-anchor-id="練習3連続複利による将来価値">練習3：連続複利による将来価値</h2>
+<div class="practice">
+<p>100円を年率3%の連続複利で運用すると、8年後の将来価値はいくらですか。</p>
+</div>
+<p>「練習3」シートでは、<span class="math inline">\(e^{0.03\times8}\)</span> の計算を練習します。Excelでは、<code>EXP(x)</code> で <span class="math inline">\(e^x\)</span> を計算できます。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C10</td>
+<td>元本：100円</td>
+</tr>
+<tr class="even">
+<td>C11</td>
+<td>年率：3%</td>
+</tr>
+<tr class="odd">
+<td>C12</td>
+<td>運用期間：8年</td>
+</tr>
+<tr class="even">
+<td><strong>C16</strong></td>
+<td><strong>EXP関数で <span class="math inline">\(e^{r\times t}\)</span> を求める数式を入力</strong></td>
+</tr>
+<tr class="odd">
+<td>C17</td>
+<td>将来価値：元本とC16の値を掛けて自動計算</td>
+</tr>
+</tbody>
+</table>
+<p>入力するのは黄色の <strong>C16だけ</strong> です。<span class="math inline">\(e^{r\times t}\)</span> は小数第6位、将来価値は小数第1位まで表示します。途中の値は丸めません。</p>
+<details>
+<summary>
+計算後に確認：練習3の解答
+</summary>
+<p>C16に入力する数式は <code>=EXP(C11*C12)</code> です。</p>
+<p><span class="math display">\[e^{0.03\times8}\approx1.271249\]</span></p>
+<p>連続複利による将来価値は、<a href="#eq-compound-continuous" class="quarto-xref">式&nbsp;<span>7</span></a> を用いると、</p>
+<p><span class="math display">\[100\times e^{0.03\times8}\fallingdotseq127.1\]</span></p>
+<p>であり、127.1円である。C17には、この将来価値が自動で表示されます。</p>
+</details>
+</section>
+<section id="練習4毎年一定のキャッシュフロー" class="level2">
+<h2 class="anchored" data-anchor-id="練習4毎年一定のキャッシュフロー">練習4：毎年一定のキャッシュ・フロー</h2>
+<div class="practice">
+<p>ある投資プロジェクトは、現時点からちょうど1年後から6年後までに毎年100円のキャッシュ・フローを生み出すとする。このキャッシュ・フローを金利年率3%の年1回複利で運用できると仮定する。この投資プロジェクトが生み出すキャッシュ・フローの6年後の将来価値を求めなさい。</p>
+</div>
+<p>「練習4」シートでは、C10に年率、C11に評価時点、B15:C20に各CFの発生時点と金額が入っています。</p>
+<ol type="1">
+<li><strong>D15:D20</strong> に各CFの運用期間を求める数式を入力します。</li>
+<li><strong>E15:E20</strong> に各CFの6年後の価値を求める数式を入力します。最初の行に入力し、下へコピーしてください。</li>
+<li><strong>E22</strong> に <code>SUM</code> 関数を使って将来価値の合計を求めます。</li>
+</ol>
+<details>
+<summary>
+計算後に確認：練習4の解答
+</summary>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>入力する数式</th>
+<th>コピー先</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D15</td>
+<td><code>=$C$11-B15</code></td>
+<td>D20まで</td>
+</tr>
+<tr class="even">
+<td>E15</td>
+<td><code>=C15*(1+$C$10)^D15</code></td>
+<td>E20まで</td>
+</tr>
+<tr class="odd">
+<td>E22</td>
+<td><code>=SUM(E15:E20)</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>発生時点</th>
+<th style="text-align: right;">CF（円）</th>
+<th style="text-align: right;">運用期間</th>
+<th style="text-align: right;">6年後の価値（円）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1年後</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">5年</td>
+<td style="text-align: right;">115.9274</td>
+</tr>
+<tr class="even">
+<td>2年後</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">4年</td>
+<td style="text-align: right;">112.5509</td>
+</tr>
+<tr class="odd">
+<td>3年後</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">3年</td>
+<td style="text-align: right;">109.2727</td>
+</tr>
+<tr class="even">
+<td>4年後</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">2年</td>
+<td style="text-align: right;">106.0900</td>
+</tr>
+<tr class="odd">
+<td>5年後</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">1年</td>
+<td style="text-align: right;">103.0000</td>
+</tr>
+<tr class="even">
+<td>6年後</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0年</td>
+<td style="text-align: right;">100.0000</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[FV_6=100(1+0.03)^5+100(1+0.03)^4+\cdots+100(1+0.03)^0\approx646.8410\text{（円）}\]</span></p>
+<p>6年後に受け取る100円の運用期間は0年です。</p>
+</details>
+</section>
+<section id="練習53年後から始まるキャッシュフロー" class="level2">
+<h2 class="anchored" data-anchor-id="練習53年後から始まるキャッシュフロー">練習5：3年後から始まるキャッシュ・フロー</h2>
+<div class="practice">
+<p>ある投資プロジェクトは、現時点から3年後に初めて100円のキャッシュ・フローを生み出し、以後1年ごとに100円のキャッシュ・フローが6年後まで続くとする。このキャッシュ・フローを、年率3%の年1回複利で運用できるとする。</p>
+<p>この投資プロジェクトが生み出すキャッシュ・フローの7年後の将来価値を求めなさい。</p>
+</div>
+<p>「練習5」シートを使います。評価時点は <strong>7年後</strong> です。</p>
+<ol type="1">
+<li><strong>D15:D18</strong> に各CFの運用期間を、<strong>E15:E18</strong> に各CFの7年後の価値を求める数式を入力します。</li>
+<li><strong>E22</strong> に将来価値の合計を求める数式を入力します。</li>
+</ol>
+<details>
+<summary>
+計算後に確認：練習5の解答
+</summary>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>入力する数式</th>
+<th>コピー先</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D15</td>
+<td><code>=$C$11-B15</code></td>
+<td>D18まで</td>
+</tr>
+<tr class="even">
+<td>E15</td>
+<td><code>=C15*(1+$C$10)^D15</code></td>
+<td>E18まで</td>
+</tr>
+<tr class="odd">
+<td>E22</td>
+<td><code>=SUM(E15:E18)</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>3、4、5、6年後のCFを、それぞれ <strong>4、3、2、1年間</strong> 運用します。</p>
+<p><span class="math display">\[\begin{aligned}
+FV_7&amp;=100(1+0.03)^4+100(1+0.03)^3\\
+&amp;\quad+100(1+0.03)^2+100(1+0.03)\\
+&amp;\approx430.9136\text{（円）}
+\end{aligned}\]</span></p>
+</details>
+</section>
+<section id="練習6毎年異なるキャッシュフロー" class="level2">
+<h2 class="anchored" data-anchor-id="練習6毎年異なるキャッシュフロー">練習6：毎年異なるキャッシュ・フロー</h2>
+<div class="practice">
+<p>ある投資プロジェクトは、1年後に200円、2年後に100円、3年後に300円、4年後に200円のキャッシュ・フローを生み出すとする。受け取ったCFを、年率3%の年1回複利で運用できるとする。</p>
+<p>4年後の将来価値を求めなさい。</p>
+</div>
+<p>「練習6」シートを使います。</p>
+<ol type="1">
+<li><strong>D15:D18</strong> に各CFの運用期間を求めます。</li>
+<li><strong>E15:E18</strong> に各CFの4年後の価値を求め、<strong>E22</strong> で合計します。</li>
+</ol>
+<p>各時点でCFの金額が異なるため、各行の金額を参照して計算してください。</p>
+<details>
+<summary>
+計算後に確認：練習6の解答
+</summary>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>入力する数式</th>
+<th>コピー先</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D15</td>
+<td><code>=$C$11-B15</code></td>
+<td>D18まで</td>
+</tr>
+<tr class="even">
+<td>E15</td>
+<td><code>=C15*(1+$C$10)^D15</code></td>
+<td>E18まで</td>
+</tr>
+<tr class="odd">
+<td>E22</td>
+<td><code>=SUM(E15:E18)</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>発生時点</th>
+<th style="text-align: right;">CF（円）</th>
+<th style="text-align: right;">運用期間</th>
+<th style="text-align: right;">4年後の価値（円）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1年後</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">3年</td>
+<td style="text-align: right;">218.5454</td>
+</tr>
+<tr class="even">
+<td>2年後</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">2年</td>
+<td style="text-align: right;">106.0900</td>
+</tr>
+<tr class="odd">
+<td>3年後</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">1年</td>
+<td style="text-align: right;">309.0000</td>
+</tr>
+<tr class="even">
+<td>4年後</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">0年</td>
+<td style="text-align: right;">200.0000</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\begin{aligned}
+FV_4&amp;=200(1+0.03)^3+100(1+0.03)^2\\
+&amp;\quad+300(1+0.03)+200\\
+&amp;=833.6354\text{（円）}
+\end{aligned}\]</span></p>
+</details>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "コピーしました");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "コピーしました");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/kakyo1515\.github\.io\/finance_intro_exercise_2026-site\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../index.html" class="pagination-link" aria-label="第1回：Excelの基本操作">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第1回：Excelの基本操作</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
