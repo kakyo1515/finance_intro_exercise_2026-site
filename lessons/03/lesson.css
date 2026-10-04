@@ -1,0 +1,14 @@
+/* Keep long lesson formulas scrollable within the text column. */
+main.content { min-width: 0; }
+main mjx-container[display="true"] {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.3rem;
+}
+main .quarto-table-container { max-width: 100%; overflow-x: auto; }
+
+@media (max-width: 767px) {
+  main table { display: block; max-width: 100%; overflow-x: auto; }
+}

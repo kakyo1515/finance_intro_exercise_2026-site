@@ -36,6 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../lessons/03/index.html" rel="next">
 <link href="../../index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -153,6 +154,12 @@ window.Quarto = {
  <span class="menu-text">第2回：お金の時間価値 I</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第3回：お金の時間価値 II</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -172,7 +179,7 @@ window.Quarto = {
   <li><a href="#単利による将来価値" id="toc-単利による将来価値" class="nav-link" data-scroll-target="#単利による将来価値">単利による将来価値</a></li>
   <li><a href="#複利による将来価値年1回複利" id="toc-複利による将来価値年1回複利" class="nav-link" data-scroll-target="#複利による将来価値年1回複利">複利による将来価値（年1回複利）</a></li>
   <li><a href="#複利による将来価値年-m-回複利" id="toc-複利による将来価値年-m-回複利" class="nav-link" data-scroll-target="#複利による将来価値年-m-回複利">複利による将来価値（年 <span class="math inline">\(m\)</span> 回複利）</a></li>
-  <li><a href="#連続複利による将来価値" id="toc-連続複利による将来価値" class="nav-link" data-scroll-target="#連続複利による将来価値">連続複利による将来価値</a></li>
+  <li><a href="#複利による将来価値連続複利" id="toc-複利による将来価値連続複利" class="nav-link" data-scroll-target="#複利による将来価値連続複利">複利による将来価値（連続複利）</a></li>
   <li><a href="#普通年金の将来価値" id="toc-普通年金の将来価値" class="nav-link" data-scroll-target="#普通年金の将来価値">普通年金の将来価値</a></li>
   <li><a href="#毎期変化するキャッシュフローの将来価値" id="toc-毎期変化するキャッシュフローの将来価値" class="nav-link" data-scroll-target="#毎期変化するキャッシュフローの将来価値">毎期変化するキャッシュ・フローの将来価値</a></li>
   </ul></li>
@@ -180,7 +187,7 @@ window.Quarto = {
   <li><a href="#練習1単利による将来価値" id="toc-練習1単利による将来価値" class="nav-link" data-scroll-target="#練習1単利による将来価値">練習1：単利による将来価値</a></li>
   <li><a href="#練習2-1年2回複利による将来価値" id="toc-練習2-1年2回複利による将来価値" class="nav-link" data-scroll-target="#練習2-1年2回複利による将来価値">練習2-1：年2回複利による将来価値</a></li>
   <li><a href="#練習2-2付利回数と将来価値" id="toc-練習2-2付利回数と将来価値" class="nav-link" data-scroll-target="#練習2-2付利回数と将来価値">練習2-2：付利回数と将来価値</a></li>
-  <li><a href="#練習3連続複利による将来価値" id="toc-練習3連続複利による将来価値" class="nav-link" data-scroll-target="#練習3連続複利による将来価値">練習3：連続複利による将来価値</a></li>
+  <li><a href="#練習3複利による将来価値連続複利" id="toc-練習3複利による将来価値連続複利" class="nav-link" data-scroll-target="#練習3複利による将来価値連続複利">練習3：複利による将来価値（連続複利）</a></li>
   <li><a href="#練習4毎年一定のキャッシュフロー" id="toc-練習4毎年一定のキャッシュフロー" class="nav-link" data-scroll-target="#練習4毎年一定のキャッシュフロー">練習4：毎年一定のキャッシュ・フロー</a></li>
   <li><a href="#練習53年後から始まるキャッシュフロー" id="toc-練習53年後から始まるキャッシュフロー" class="nav-link" data-scroll-target="#練習53年後から始まるキャッシュフロー">練習5：3年後から始まるキャッシュ・フロー</a></li>
   <li><a href="#練習6毎年異なるキャッシュフロー" id="toc-練習6毎年異なるキャッシュフロー" class="nav-link" data-scroll-target="#練習6毎年異なるキャッシュフロー">練習6：毎年異なるキャッシュ・フロー</a></li>
@@ -275,8 +282,8 @@ FV_t=PV\times\left(1+\frac{r}{m}\right)^{mt}
 \tag{6}\]</span></span></p>
 <p><span class="math inline">\(m=1\)</span> は年1回複利、<span class="math inline">\(m=2\)</span> は半年複利です。</p>
 </section>
-<section id="連続複利による将来価値" class="level3">
-<h3 class="anchored" data-anchor-id="連続複利による将来価値">連続複利による将来価値</h3>
+<section id="複利による将来価値連続複利" class="level3">
+<h3 class="anchored" data-anchor-id="複利による将来価値連続複利">複利による将来価値（連続複利）</h3>
 <p>付利回数 <span class="math inline">\(m\)</span> を無限大にした場合を、<strong>連続複利</strong>といいます。</p>
 <p><span id="eq-compound-continuous"><span class="math display">\[
 FV_t
@@ -619,8 +626,8 @@ FV_N
 <p>年率と運用期間を一定にしたまま <span class="math inline">\(m\)</span> を増やすと、FVは増加します。ただし、FVの増え方は次第に緩やかになります。<span class="math inline">\(m\)</span> を変える際に年率 <span class="math inline">\(r\)</span> を変えないことが大切です。</p>
 </details>
 </section>
-<section id="練習3連続複利による将来価値" class="level2">
-<h2 class="anchored" data-anchor-id="練習3連続複利による将来価値">練習3：連続複利による将来価値</h2>
+<section id="練習3複利による将来価値連続複利" class="level2">
+<h2 class="anchored" data-anchor-id="練習3複利による将来価値連続複利">練習3：複利による将来価値（連続複利）</h2>
 <div class="practice">
 <p>100円を年率3%の連続複利で運用すると、8年後の将来価値はいくらですか。</p>
 </div>
@@ -662,7 +669,7 @@ FV_N
 </summary>
 <p>C16に入力する数式は <code>=EXP(C11*C12)</code> です。</p>
 <p><span class="math display">\[e^{0.03\times8}\approx1.271249\]</span></p>
-<p>連続複利による将来価値は、<a href="#eq-compound-continuous" class="quarto-xref">式&nbsp;<span>7</span></a> を用いると、</p>
+<p>複利による将来価値（連続複利）は、<a href="#eq-compound-continuous" class="quarto-xref">式&nbsp;<span>7</span></a> を用いると、</p>
 <p><span class="math display">\[100\times e^{0.03\times8}\fallingdotseq127.1\]</span></p>
 <p>であり、127.1円である。C17には、この将来価値が自動で表示されます。</p>
 </details>
@@ -1305,6 +1312,9 @@ FV_4&amp;=200(1+0.03)^3+100(1+0.03)^2\\
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../lessons/03/index.html" class="pagination-link" aria-label="第3回：お金の時間価値 II">
+        <span class="nav-page-text">第3回：お金の時間価値 II</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
