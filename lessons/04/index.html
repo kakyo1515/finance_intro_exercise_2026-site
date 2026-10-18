@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>第4回：投資の意思決定 – ファイナンス入門演習</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../lessons/03/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37294f0e61b532b0f7ebd5ccc0471b30.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ada970402ac7522bda4dfe1cb552fea6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "一致なし",
+    "search-matching-documents-text": "一致した文書",
+    "search-copy-link-title": "検索へのリンクをコピー",
+    "search-hide-matches-text": "追加の検索結果を非表示",
+    "search-more-match-text": "追加の検索結果",
+    "search-more-matches-text": "追加の検索結果",
+    "search-clear-button-title": "消去",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "検索",
+    "search-label": "サーチ"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="lesson.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/04/index.html">第4回：投資の意思決定</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">ファイナンス入門演習</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="サーチ"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第1回：Excelの基本操作</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第2回：お金の時間価値 I</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">第3回：お金の時間価値 II</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/04/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">第4回：投資の意思決定</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#到達目標" id="toc-到達目標" class="nav-link active" data-scroll-target="#到達目標">到達目標</a></li>
+  <li><a href="#重要な公式" id="toc-重要な公式" class="nav-link" data-scroll-target="#重要な公式">重要な公式</a>
+  <ul class="collapse">
+  <li><a href="#正味現在価値npv" id="toc-正味現在価値npv" class="nav-link" data-scroll-target="#正味現在価値npv">正味現在価値（NPV）</a></li>
+  <li><a href="#内部収益率irr" id="toc-内部収益率irr" class="nav-link" data-scroll-target="#内部収益率irr">内部収益率（IRR）</a></li>
+  <li><a href="#収益性指標pi" id="toc-収益性指標pi" class="nav-link" data-scroll-target="#収益性指標pi">収益性指標（PI）</a></li>
+  <li><a href="#回収期間" id="toc-回収期間" class="nav-link" data-scroll-target="#回収期間">回収期間</a></li>
+  </ul></li>
+  <li><a href="#npv関数irr関数" id="toc-npv関数irr関数" class="nav-link" data-scroll-target="#npv関数irr関数">NPV関数・IRR関数</a>
+  <ul class="collapse">
+  <li><a href="#npv関数" id="toc-npv関数" class="nav-link" data-scroll-target="#npv関数">NPV関数</a></li>
+  <li><a href="#irr関数" id="toc-irr関数" class="nav-link" data-scroll-target="#irr関数">IRR関数</a></li>
+  <li><a href="#ミニ練習npv関数irr関数" id="toc-ミニ練習npv関数irr関数" class="nav-link" data-scroll-target="#ミニ練習npv関数irr関数">ミニ練習：NPV関数・IRR関数</a></li>
+  </ul></li>
+  <li><a href="#練習13年間永久に続くcfのnpv" id="toc-練習13年間永久に続くcfのnpv" class="nav-link" data-scroll-target="#練習13年間永久に続くcfのnpv">練習1：3年間・永久に続くCFのNPV</a></li>
+  <li><a href="#練習2資本コストとnpvプロファイル" id="toc-練習2資本コストとnpvプロファイル" class="nav-link" data-scroll-target="#練習2資本コストとnpvプロファイル">練習2：資本コストとNPVプロファイル</a></li>
+  <li><a href="#練習3内部収益率irr" id="toc-練習3内部収益率irr" class="nav-link" data-scroll-target="#練習3内部収益率irr">練習3：内部収益率（IRR）</a></li>
+  <li><a href="#練習4事業efの収益性指標pi" id="toc-練習4事業efの収益性指標pi" class="nav-link" data-scroll-target="#練習4事業efの収益性指標pi">練習4：事業E・Fの収益性指標（PI）</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">第4回：投資の意思決定</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>使用するExcelファイルのダウンロード</strong></p>
+<p><a href="files/ファイナンス入門演習_第4回.xlsx" class="btn btn-primary" download="ファイナンス入門演習_第4回.xlsx">ファイナンス入門演習_第4回.xlsxをダウンロード</a></p>
+<section id="到達目標" class="level2">
+<h2 class="anchored" data-anchor-id="到達目標">到達目標</h2>
+<ul>
+<li>投資の意思決定に用いる各種指標の原理を理解する。</li>
+<li>NPV関数・IRR関数の使い方を理解し、計算できる。</li>
+<li>NPVプロファイルを作成できる。</li>
+</ul>
+</section>
+<section id="重要な公式" class="level2">
+<h2 class="anchored" data-anchor-id="重要な公式">重要な公式</h2>
+<p>第4回の講義で扱った重要な公式を確認しましょう。<span class="math inline">\(I\)</span> は初期投資額（正の金額）、<span class="math inline">\(CF_t\)</span> は第 <span class="math inline">\(t\)</span> 期の期待CF、<span class="math inline">\(T\)</span> は操業期間、<span class="math inline">\(r\)</span> は1期間あたりの資本コストです。各時点のCFは、キャッシュ・インフローからキャッシュ・アウトフローを差し引いた金額です。</p>
+<p>以下では、初期CFが <span class="math inline">\(CF_0=-I\)</span>、その後の期待CFがプラスとなる<strong>標準的な投資計画</strong>を中心に考えます。</p>
+<section id="正味現在価値npv" class="level3">
+<h3 class="anchored" data-anchor-id="正味現在価値npv">正味現在価値（NPV）</h3>
+<p>将来の期待CFの現在価値の合計から初期投資額を差し引きます。</p>
+<p><span id="eq-l04-npv"><span class="math display">\[
+\mathrm{NPV}=\sum_{t=1}^{T}\frac{CF_t}{(1+r)^t}-I
+\tag{1}\]</span></span></p>
+<p><u>NPVが正なら、投資は採択されるべきであり、負なら棄却されるべきです。</u></p>
+</section>
+<section id="内部収益率irr" class="level3">
+<h3 class="anchored" data-anchor-id="内部収益率irr">内部収益率（IRR）</h3>
+<p>IRRは、NPVをゼロにする割引率です。</p>
+<p><span id="eq-l04-irr"><span class="math display">\[
+\sum_{t=1}^{T}\frac{CF_t}{(1+\mathrm{IRR})^t}-I=0
+\tag{2}\]</span></span></p>
+<p>標準的な事業投資では、<u>IRRが資本コストを上回れば採択、下回れば棄却します。</u> IRRは事業の収益率であり、資本コストとは区別します。</p>
+</section>
+<section id="収益性指標pi" class="level3">
+<h3 class="anchored" data-anchor-id="収益性指標pi">収益性指標（PI）</h3>
+<p>本回では、NPVを初期投資額で除した指標を用います。</p>
+<p><span id="eq-l04-pi"><span class="math display">\[
+\mathrm{PI}=\frac{\mathrm{NPV}}{I}
+\tag{3}\]</span></span></p>
+<p><u>PIが正なら、投資は採択されるべきであり、負なら棄却されるべきです。</u> PIは、単位当たりの資本支出が生み出すNPVの大きさを示します。</p>
+</section>
+<section id="回収期間" class="level3">
+<h3 class="anchored" data-anchor-id="回収期間">回収期間</h3>
+<p>初期投資額を、その後のCFで回収するまでの期間です。CFが各年内に均等に発生するとき、次のように計算します。</p>
+<p><span id="eq-l04-payback"><span class="math display">\[
+\text{回収期間}
+=\text{回収直前までの年数}
++\frac{\text{その時点の未回収額}}{\text{回収する年の年間CF}}
+\tag{4}\]</span></span></p>
+<p><u>回収期間が回収期限より短ければ採択、長ければ棄却します。</u></p>
+<p>IRRが複数存在する場合や存在しない場合などは、NPV法で判断します。回収期間法は、お金の時間価値や回収期間以降のCFを考慮しない点に注意します。</p>
+</section>
+</section>
+<section id="npv関数irr関数" class="level2">
+<h2 class="anchored" data-anchor-id="npv関数irr関数">NPV関数・IRR関数</h2>
+<p>「NPV・IRR関数」シートで使い方を確認しましょう。CFは一定の時間間隔で並べ、キャッシュ・インフローは＋、キャッシュ・アウトフローは－で表します。</p>
+<section id="npv関数" class="level3">
+<h3 class="anchored" data-anchor-id="npv関数">NPV関数</h3>
+<pre class="text"><code>=NPV(資本コスト, 第1期以降のCF範囲)+第0期のCF</code></pre>
+<p><u>NPV関数の範囲に、第0期のCFは含めません。</u> 第0期のCFは割り引かず、関数の計算結果に加えます。CFが0の期も、省略せず0を入力します。</p>
+<p><strong>例：設備投資のNPVを求める</strong></p>
+<p>初期投資100に対し、1年後30、2年後40、3年後60の期待CFが生じ、資本コストは年率10%とします。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">行</th>
+<th style="text-align: right;">B列：時点（年）</th>
+<th style="text-align: right;">C列：CF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">−100</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">13</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">60</td>
+</tr>
+</tbody>
+</table>
+<p>G10に資本コスト10%が入っています。C16に次の式を入力します。</p>
+<pre class="text"><code>=NPV(G10,C11:C13)+C10</code></pre>
+<p>結果は約 <strong>5.4095</strong> です。D10に <code>=C10/(1+$G$10)^B10</code> を入力してD13までコピーし、C17に <code>=SUM(D10:D13)</code> を入力すると、同じ結果になります。</p>
+</section>
+<section id="irr関数" class="level3">
+<h3 class="anchored" data-anchor-id="irr関数">IRR関数</h3>
+<pre class="text"><code>=IRR(第0期を含むCF範囲)</code></pre>
+<p><u>IRR関数では、第0期の初期投資も範囲に含めます。</u> 上の例について、C19に次の式を入力します。</p>
+<pre class="text"><code>=IRR(C10:C13)</code></pre>
+<p>結果は約 <strong>12.71%</strong> です。C20に <code>=NPV(C19,C11:C13)+C10</code> を入力し、NPVがほぼ0になることを確認します。</p>
+<p>G10を13%に変更すると、NPVは約−0.5425になります。一方、CF自体は変わっていないためIRRは変わりません。確認後、G10を10%に戻してください。</p>
+<p>IRR関数は数値的に解を求めます。CFのパターンによっては、解が存在しない場合や複数存在する場合があります。</p>
+<p>関数の仕様は Microsoft の <a href="https://support.microsoft.com/ja-jp/excel/functions/npv-function">NPV関数</a> と <a href="https://support.microsoft.com/ja-jp/excel/functions/irr-function">IRR関数</a> でも確認できます。</p>
+</section>
+<section id="ミニ練習npv関数irr関数" class="level3">
+<h3 class="anchored" data-anchor-id="ミニ練習npv関数irr関数">ミニ練習：NPV関数・IRR関数</h3>
+<div class="practice">
+<p>初期投資100に対し、1年後と2年後にそれぞれ60のCFが生じる。資本コストは年率10%とする。NPV関数とIRR関数を使って、NPVとIRRを求めなさい。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(t\)</span>（年）</th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CF</td>
+<td style="text-align: right;">−100</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">60</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>「NPV・IRR関数」シート下部のミニ練習を使います。G43は資本コスト、C43:C45は第0期を含むCFです。</p>
+<ol type="1">
+<li><strong>C48</strong> にNPV関数を使ってNPVを求めます。</li>
+<li><strong>C49</strong> にIRR関数を使ってIRRを求めます。</li>
+<li><strong>C50</strong> に求めたIRRを用いてNPVを計算し、ほぼ0になることを確認します。</li>
+</ol>
+</section>
+</section>
+<section id="練習13年間永久に続くcfのnpv" class="level2">
+<h2 class="anchored" data-anchor-id="練習13年間永久に続くcfのnpv">練習1：3年間・永久に続くCFのNPV</h2>
+<div class="practice">
+<p>ある企業が新規設備に28億円の投資を行う。その設備投資が1年後から1年ごとに10億円の正のキャッシュ・フローを生むとする。資本コストは年率10%（年1回複利）とする。</p>
+<p>問1：CFが3年間だけの場合、正味現在価値はいくらですか。</p>
+<p>問2：CFが永久に続く場合、正味現在価値はいくらですか。</p>
+</div>
+<p>「練習1」シートを使います。C10は資本コスト、C11は初期投資額、C12は毎年のCFです。</p>
+<ol type="1">
+<li>問1は <strong>D15:D18</strong> で各時点の現在価値を、<strong>C20</strong> でNPVを求めます。<strong>C21</strong> でNPV関数の結果と比較します。</li>
+<li>問2は <strong>C26</strong> で永久年金の現在価値を求め、<strong>C27</strong> で初期投資額を差し引きます。</li>
+</ol>
+<details>
+<summary>
+計算後に確認：練習1の解答
+</summary>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>入力する数式</th>
+<th>コピー先</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D15</td>
+<td><code>=C15/(1+$C$10)^B15</code></td>
+<td>D18まで</td>
+</tr>
+<tr class="even">
+<td>C20</td>
+<td><code>=SUM(D15:D18)</code></td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>C21</td>
+<td><code>=NPV(C10,C16:C18)+C15</code></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>C26</td>
+<td><code>=C12/C10</code></td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>C27</td>
+<td><code>=C26-C11</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+NPV_{\text{問1}}=\frac{10}{1+0.1}+\frac{10}{(1+0.1)^2}
++\frac{10}{(1+0.1)^3}-28\approx-3.1315\text{（億円）}
+\]</span></p>
+<p><span class="math display">\[NPV_{\text{問2}}=\frac{10}{0.1}-28=72\text{（億円）}\]</span></p>
+</details>
+</section>
+<section id="練習2資本コストとnpvプロファイル" class="level2">
+<h2 class="anchored" data-anchor-id="練習2資本コストとnpvプロファイル">練習2：資本コストとNPVプロファイル</h2>
+<div class="practice">
+<p>現時点で100の投資を行うと、1年後に30、2年後に40、3年後に60のCFが得られるとする。資本コスト（年1回複利）を10.0%、10.5%、11.0%、…、14.5%、15.0%と変化させ、NPV関数を使って、それぞれのNPVを計算しなさい。その結果を用いて、NPVプロファイルを描きなさい。</p>
+</div>
+<p>「練習2」シートを使います。C11:C14は第0期を含むCF、B18:B28は10.0%から15.0%まで0.5パーセントポイント刻みの資本コストです。</p>
+<ol type="1">
+<li><strong>C18</strong> にNPV関数を使った計算式を入力し、<strong>C28</strong> までコピーします。CFの範囲は絶対参照にします。</li>
+<li><strong>B17:C28</strong> を選択し、［挿入］から <strong>散布図（直線とマーカー）</strong> を作成します。</li>
+<li>横軸を資本コスト、縦軸をNPVとし、グラフのタイトルを「NPVプロファイル」にします。横軸の表示形式はパーセントにし、グラフを表の右側に配置します。</li>
+</ol>
+<details>
+<summary>
+計算後に確認：練習2の解答
+</summary>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>入力する数式</th>
+<th>コピー先</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C18</td>
+<td><code>=NPV(B18,$C$12:$C$14)+$C$11</code></td>
+<td>C28まで</td>
+</tr>
+</tbody>
+</table>
+<p>NPV関数では第1期以降のCFを割り引き、第0期のCFを最後に加えます。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">資本コスト</th>
+<th style="text-align: right;">NPV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">10.0%</td>
+<td style="text-align: right;">5.4095</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.5%</td>
+<td style="text-align: right;">4.3784</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.0%</td>
+<td style="text-align: right;">3.3634</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">11.5%</td>
+<td style="text-align: right;">2.3641</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">12.0%</td>
+<td style="text-align: right;">1.3803</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12.5%</td>
+<td style="text-align: right;">0.4115</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13.0%</td>
+<td style="text-align: right;">−0.5425</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">13.5%</td>
+<td style="text-align: right;">−1.4819</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">14.0%</td>
+<td style="text-align: right;">−2.4072</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">14.5%</td>
+<td style="text-align: right;">−3.3186</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15.0%</td>
+<td style="text-align: right;">−4.2163</td>
+</tr>
+</tbody>
+</table>
+NPVプロファイルは右下がりになります。NPVが0になる資本コストは、12.5%と13.0%の間にあります。
+</details>
+</section>
+<section id="練習3内部収益率irr" class="level2">
+<h2 class="anchored" data-anchor-id="練習3内部収益率irr">練習3：内部収益率（IRR）</h2>
+<div class="practice">
+<p>次のCFを生む投資の内部収益率を計算しなさい。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(t\)</span>（年）</th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CF</td>
+<td style="text-align: right;">−100</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">90</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>「練習3」シートの <strong>C20</strong> にIRR関数を入力します。<strong>C21</strong> では、求めたIRRを用いてNPVを計算し、ほぼ0になることを確認します。</p>
+<details>
+<summary>
+計算後に確認：練習3の解答
+</summary>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>入力する数式</th>
+<th style="text-align: right;">結果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C20</td>
+<td><code>=IRR(C15:C17)</code></td>
+<td style="text-align: right;">約11.05%</td>
+</tr>
+<tr class="even">
+<td>C21</td>
+<td><code>=NPV(C20,C16:C17)+C15</code></td>
+<td style="text-align: right;">約0</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\frac{30}{1+IRR}+\frac{90}{(1+IRR)^2}-100=0\]</span></p>
+この式を満たすIRRは約11.0469%です。Excelではごく小さな計算誤差が残る場合があります。
+</details>
+</section>
+<section id="練習4事業efの収益性指標pi" class="level2">
+<h2 class="anchored" data-anchor-id="練習4事業efの収益性指標pi">練習4：事業E・Fの収益性指標（PI）</h2>
+<div class="practice">
+<p>資本コストが10%であるとき、事業Eと事業FのPIを求めなさい。資本支出はEが1,000、Fが800である。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(t\)</span>（期）</th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>事業E</td>
+<td style="text-align: right;">−1,000</td>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td>事業F</td>
+<td style="text-align: right;">−800</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">150</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>「練習4」シートを使います。</p>
+<ol type="1">
+<li><strong>E15:E19</strong> に事業E、<strong>F15:F19</strong> に事業Fの各CFの現在価値を求めます。</li>
+<li><strong>C23・D23</strong> にそれぞれのNPV、<strong>C24・D24</strong> にPIを求めます。</li>
+</ol>
+<details>
+<summary>
+計算後に確認：練習4の解答
+</summary>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>セル</th>
+<th>入力する数式</th>
+<th>コピー先</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E15</td>
+<td><code>=C15/(1+$C$10)^B15</code></td>
+<td>E19まで</td>
+</tr>
+<tr class="even">
+<td>F15</td>
+<td><code>=D15/(1+$C$10)^B15</code></td>
+<td>F19まで</td>
+</tr>
+<tr class="odd">
+<td>C23</td>
+<td><code>=SUM(E15:E19)</code></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>D23</td>
+<td><code>=SUM(F15:F19)</code></td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>C24</td>
+<td><code>=C23/(-C15)</code></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>D24</td>
+<td><code>=D23/(-D15)</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>事業</th>
+<th style="text-align: right;">NPV</th>
+<th style="text-align: right;">PI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E</td>
+<td style="text-align: right;">11.2014</td>
+<td style="text-align: right;">0.0112</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td style="text-align: right;">10.9419</td>
+<td style="text-align: right;">0.0137</td>
+</tr>
+</tbody>
+</table>
+本回のPIは <span class="math inline">\(NPV/I\)</span> です。<span class="math inline">\(I\)</span> は正の初期投資額なので、分母には負の第0期CFの符号を反転した値を用います。PIは事業Fの方が高くなります。
+</details>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "コピーしました");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "コピーしました");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/kakyo1515\.github\.io\/finance_intro_exercise_2026-site\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../lessons/03/index.html" class="pagination-link" aria-label="第3回：お金の時間価値 II">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第3回：お金の時間価値 II</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
